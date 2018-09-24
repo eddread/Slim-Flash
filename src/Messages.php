@@ -177,6 +177,17 @@ class Messages
     }
 
     /**
+     * Has a message in storage for next request
+     * 
+     * @param string $key The key to get the message from
+     * @return bool Whether the message is set or not
+     */
+    public function hasMessageNext($key) 
+    {
+        return isset($this->storage[$this->storageKey][$key]);
+    }
+
+    /**
      * Clear all messages
      *
      * @return void

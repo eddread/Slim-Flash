@@ -235,6 +235,17 @@ class MessagesTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($flash->hasMessage('Test'));
     }
 
+    public function testHasMessageNext()
+    {
+        $storage = ['slimFlash' => []];
+        $flash = new Messages($storage);
+        $this->assertFalse($flash->hasMessageNext('Test'));
+
+        $flash = new Messages($storage);
+        $flash->addMessage('Test', "Hello");
+        $this->assertTrue($flash->hasMessageNext('Test'));
+    }
+
     public function testClearMessages()
     {
         $storage = ['slimFlash' => []];
